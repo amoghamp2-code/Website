@@ -38,7 +38,7 @@ export default function HeroMinimal({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.05 }}
-              className="mt-2 text-[42px] md:text-[78px] leading-[1.02] font-semibold tracking-[-0.02em]"
+              className="mt-2 text-[38px] md:text-[78px] leading-[1.02] font-semibold tracking-[-0.02em]"
             >
               {name}
             </motion.h1>
