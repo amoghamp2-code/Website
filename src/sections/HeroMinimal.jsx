@@ -6,13 +6,12 @@ export default function HeroMinimal({
   role = "Embedded Systems Developer",
   tagline = "Rust · C/C++ · Embedded Linux/Yocto · RTOS · Drivers · BLE · OTA",
   resumeHref = "/Amogha_CV.pdf",
-  // photo prop kept for backwards-compat, but we build the src from BASE_URL below
   photo = `${import.meta.env.BASE_URL}amogha-portrait.jpg`,
   bw = true,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
-      {/* background wash (non-interactive) */}
+    <section className="relative overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9] pt-12 md:pt-20 pb-8 md:pb-16">
+      {/* Subtle background gradient overlay */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
@@ -22,15 +21,15 @@ export default function HeroMinimal({
       />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* MOBILE-FRIENDLY GRID (no tall empty column on phones) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center md:min-h-[78vh] py-12 md:py-24">
-          {/* left text (force dark text since panel stays light in both modes) */}
-          <div className="md:col-span-6 text-neutral-900 dark:text-neutral-900">
+        {/* Stack vertically on mobile, align side by side on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+          {/* --- LEFT TEXT --- */}
+          <div className="md:col-span-6 text-neutral-900 dark:text-neutral-900 flex flex-col justify-center">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="text-[18px] md:text-[20px] text-neutral-700 dark:text-neutral-700 tracking-[0.02em]"
+              className="text-[18px] md:text-[20px] text-neutral-700 tracking-[0.02em]"
             >
               Hello, I’m
             </motion.p>
@@ -39,7 +38,7 @@ export default function HeroMinimal({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.05 }}
-              className="mt-3 text-[44px] md:text-[80px] leading-[1.02] font-semibold tracking-[-0.02em] text-neutral-900 dark:text-neutral-900"
+              className="mt-2 text-[42px] md:text-[78px] leading-[1.02] font-semibold tracking-[-0.02em]"
             >
               {name}
             </motion.h1>
@@ -48,7 +47,7 @@ export default function HeroMinimal({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.1 }}
-              className="mt-3 text-[22px] md:text-[26px] text-neutral-800 dark:text-neutral-800"
+              className="mt-2 text-[20px] md:text-[26px] text-neutral-800"
             >
               {role}
             </motion.p>
@@ -57,7 +56,7 @@ export default function HeroMinimal({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.12 }}
-              className="mt-2 text-[14px] md:text-[15px] text-neutral-600 dark:text-neutral-600 max-w-xl"
+              className="mt-1 text-[14px] md:text-[15px] text-neutral-600 max-w-xl"
             >
               {tagline}
             </motion.p>
@@ -66,13 +65,13 @@ export default function HeroMinimal({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.16 }}
-              className="mt-6"
+              className="mt-5"
             >
               <a
                 href={resumeHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-[18px] underline underline-offset-[6px] decoration-2 text-neutral-900 dark:text-neutral-900"
+                className="inline-flex items-center gap-2 text-[17px] underline underline-offset-[6px] decoration-2 hover:opacity-80 transition"
               >
                 <FileDown className="h-5 w-5 -mt-[1px]" />
                 Download Resume
@@ -80,20 +79,20 @@ export default function HeroMinimal({
             </motion.div>
           </div>
 
-          {/* right portrait */}
+          {/* --- RIGHT IMAGE --- */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.08 }}
-            className="md:col-span-6 relative z-10"
+            className="md:col-span-6 relative z-10 flex justify-center md:justify-end"
           >
-            {/* hide stripes on small screens to remove empty area */}
-            <div className="hidden md:block">
+            {/* hide stripes on small screens */}
+            <div className="hidden md:block absolute right-[-6%] top-[8%] z-0">
               <Stripes />
             </div>
 
-            {/* mobile: centered & smaller | desktop: larger and aligned right */}
-            <div className="relative mx-auto md:ml-auto w-full max-w-[420px] md:max-w-[560px] aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[28px] overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
+            {/* portrait image */}
+            <div className="relative w-[85%] max-w-[380px] md:max-w-[520px] aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden bg-[#EEF4F9]">
               <img
                 src={photo}
                 alt="Portrait of Amogha"
@@ -104,17 +103,7 @@ export default function HeroMinimal({
                     : "[filter:grayscale(8%)_contrast(105%)_saturate(108%)]",
                   "object-[55%_38%] md:object-[60%_35%] scale-[1.02] md:scale-[1.08]",
                 ].join(" ")}
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const ph = e.currentTarget.nextElementSibling;
-                  if (ph) ph.style.display = "flex";
-                }}
               />
-              {/* fallback initials if the image ever fails */}
-              <div className="hidden absolute inset-0 items-center justify-center text-6xl font-semibold text-neutral-300">
-                AM
-              </div>
-              {/* soft top fade to blend */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#EEF4F9]/30 via-transparent to-transparent" />
             </div>
           </motion.div>
@@ -124,11 +113,12 @@ export default function HeroMinimal({
   );
 }
 
+/* --- Decorative Background Lines --- */
 function Stripes() {
   return (
     <svg
       aria-hidden
-      className="pointer-events-none absolute right-[-6%] top-[8%] w-[58%] h-[84%] opacity-60 z-0"
+      className="pointer-events-none opacity-60 z-0"
       viewBox="0 0 100 100"
     >
       <g transform="rotate(-28 50 50)" fill="none" stroke="#DDE8F3" strokeWidth="4" strokeLinecap="round">
