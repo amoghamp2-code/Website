@@ -6,7 +6,8 @@ export default function HeroMinimal({
   role = "Embedded Systems Developer",
   tagline = "Rust · C/C++ · Embedded Linux/Yocto · RTOS · Drivers · BLE · OTA",
   resumeHref = "/Amogha_CV.pdf",
-  photo = "/amogha-portrait.jpg", // <-- jpg
+  // photo prop kept for backwards-compat, but we build the src from BASE_URL below
+  photo = `${import.meta.env.BASE_URL}amogha-portrait.jpg`,
   bw = true,
 }) {
   return (
@@ -19,9 +20,11 @@ export default function HeroMinimal({
             "linear-gradient(90deg, rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.25) 55%, rgba(255,255,255,0.35) 100%)",
         }}
       />
+
       <div className="max-w-6xl mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center min-h-[78vh] py-16 md:py-24">
-          {/* left text */}
+        {/* MOBILE-FRIENDLY GRID (no tall empty column on phones) */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center md:min-h-[78vh] py-12 md:py-24">
+          {/* left text (force dark text since panel stays light in both modes) */}
           <div className="md:col-span-6 text-neutral-900 dark:text-neutral-900">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -84,29 +87,30 @@ export default function HeroMinimal({
             transition={{ duration: 0.45, delay: 0.08 }}
             className="md:col-span-6 relative z-10"
           >
-            {/* decorative stripes behind (non-interactive) */}
-            <Stripes />
+            {/* hide stripes on small screens to remove empty area */}
+            <div className="hidden md:block">
+              <Stripes />
+            </div>
 
-            {/* portrait container – same light bg in both modes */}
-            <div className="relative ml-auto max-w-[560px] w-full aspect-[3/4] rounded-[28px] overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
-                <img
-                src={`${import.meta.env.BASE_URL}amogha-portrait.jpg`}
+            {/* mobile: centered & smaller | desktop: larger and aligned right */}
+            <div className="relative mx-auto md:ml-auto w-full max-w-[420px] md:max-w-[560px] aspect-[4/5] md:aspect-[3/4] rounded-2xl md:rounded-[28px] overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
+              <img
+                src={photo}
                 alt="Portrait of Amogha"
                 className={[
-                    "h-full w-full object-cover object-center",
-                    bw
+                  "h-full w-full object-cover object-center",
+                  bw
                     ? "[filter:grayscale(100%)_contrast(112%)_brightness(98%)]"
                     : "[filter:grayscale(8%)_contrast(105%)_saturate(108%)]",
-                    "object-[60%_35%] scale-[1.08]",
+                  "object-[55%_38%] md:object-[60%_35%] scale-[1.02] md:scale-[1.08]",
                 ].join(" ")}
                 onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                    const ph = e.currentTarget.nextElementSibling;
-                    if (ph) ph.style.display = "flex";
+                  e.currentTarget.style.display = "none";
+                  const ph = e.currentTarget.nextElementSibling;
+                  if (ph) ph.style.display = "flex";
                 }}
-                />
-
-              {/* fallback initials */}
+              />
+              {/* fallback initials if the image ever fails */}
               <div className="hidden absolute inset-0 items-center justify-center text-6xl font-semibold text-neutral-300">
                 AM
               </div>

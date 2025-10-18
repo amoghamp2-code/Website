@@ -92,7 +92,7 @@ export default function App() {
         role={ME.title}
         tagline={ME.tagline}
         resumeHref={ME.resume}
-        photo="/amogha-portrait.png"
+        photo="/amogha-portrait.jpg"
       />
 
       {/* SKILLS marquee */}
