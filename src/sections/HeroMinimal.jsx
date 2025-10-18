@@ -6,12 +6,12 @@ export default function HeroMinimal({
   role = "Embedded Systems Developer",
   tagline = "Rust · C/C++ · Embedded Linux/Yocto · RTOS · Drivers · BLE · OTA",
   resumeHref = "/Amogha_CV.pdf",
-  photo = "/amogha-portrait.jpg",
+  photo = "/amogha-portrait.jpg", // <-- jpg
   bw = true,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#EEF4F9]">
-      {/* background wash */}
+    <section className="relative overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
+      {/* background wash (non-interactive) */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
@@ -22,31 +22,55 @@ export default function HeroMinimal({
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center min-h-[78vh] py-16 md:py-24">
           {/* left text */}
-          <div className="md:col-span-6">
-            <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}
-              className="text-[18px] md:text-[20px] text-neutral-600 tracking-[0.02em]">
+          <div className="md:col-span-6 text-neutral-900 dark:text-neutral-900">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="text-[18px] md:text-[20px] text-neutral-700 dark:text-neutral-700 tracking-[0.02em]"
+            >
               Hello, I’m
             </motion.p>
 
-            <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}
-              className="mt-3 text-[44px] md:text-[80px] leading-[1.02] font-semibold tracking-[-0.02em]">
+            <motion.h1
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.05 }}
+              className="mt-3 text-[44px] md:text-[80px] leading-[1.02] font-semibold tracking-[-0.02em] text-neutral-900 dark:text-neutral-900"
+            >
               {name}
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.1 }}
-              className="mt-3 text-[22px] md:text-[26px] text-neutral-700">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="mt-3 text-[22px] md:text-[26px] text-neutral-800 dark:text-neutral-800"
+            >
               {role}
             </motion.p>
 
-            <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.12 }}
-              className="mt-2 text-[14px] md:text-[15px] text-neutral-500 max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.12 }}
+              className="mt-2 text-[14px] md:text-[15px] text-neutral-600 dark:text-neutral-600 max-w-xl"
+            >
               {tagline}
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.16 }}
-              className="mt-6">
-              <a href={resumeHref} target="_blank" rel="noreferrer"
-                 className="inline-flex items-center gap-2 text-[18px] underline underline-offset-[6px] decoration-2">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.16 }}
+              className="mt-6"
+            >
+              <a
+                href={resumeHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-[18px] underline underline-offset-[6px] decoration-2 text-neutral-900 dark:text-neutral-900"
+              >
                 <FileDown className="h-5 w-5 -mt-[1px]" />
                 Download Resume
               </a>
@@ -54,13 +78,17 @@ export default function HeroMinimal({
           </div>
 
           {/* right portrait */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.08 }}
-            className="md:col-span-6 relative z-10">
-            {/* decorative stripes BEHIND card */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="md:col-span-6 relative z-10"
+          >
+            {/* decorative stripes behind (non-interactive) */}
             <Stripes />
 
-            {/* portrait container – softened to blend into bg */}
-            <div className="relative ml-auto max-w-[560px] w-full aspect-[3/4] rounded-[28px] overflow-hidden bg-[#EEF4F9]">
+            {/* portrait container – same light bg in both modes */}
+            <div className="relative ml-auto max-w-[560px] w-full aspect-[3/4] rounded-[28px] overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
               <img
                 src={photo}
                 alt="Portrait of Amogha"
@@ -69,7 +97,7 @@ export default function HeroMinimal({
                   bw
                     ? "[filter:grayscale(100%)_contrast(112%)_brightness(98%)]"
                     : "[filter:grayscale(8%)_contrast(105%)_saturate(108%)]",
-                  "object-[60%_35%] scale-[1.08]"
+                  "object-[60%_35%] scale-[1.08]",
                 ].join(" ")}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
@@ -78,7 +106,9 @@ export default function HeroMinimal({
                 }}
               />
               {/* fallback initials */}
-              <div className="hidden absolute inset-0 items-center justify-center text-6xl font-semibold text-neutral-300">AM</div>
+              <div className="hidden absolute inset-0 items-center justify-center text-6xl font-semibold text-neutral-300">
+                AM
+              </div>
               {/* soft top fade to blend */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#EEF4F9]/30 via-transparent to-transparent" />
             </div>
