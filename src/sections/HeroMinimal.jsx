@@ -9,6 +9,9 @@ export default function HeroMinimal({
   photo = `${import.meta.env.BASE_URL}amogha-portrait.jpg`,
   bw = true,
 }) {
+  // Keep the last two words on the same line (prevents a lonely "P")
+  const prettyName = name.replace(/ (?!.* )/, "\u00A0");
+
   return (
     <section className="relative overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9] pt-12 md:pt-20 pb-8 md:pb-16">
       {/* Subtle background gradient overlay */}
@@ -40,7 +43,7 @@ export default function HeroMinimal({
               transition={{ duration: 0.45, delay: 0.05 }}
               className="mt-2 text-[38px] md:text-[78px] leading-[1.02] font-semibold tracking-[-0.02em]"
             >
-              {name}
+              {prettyName}
             </motion.h1>
 
             <motion.p
