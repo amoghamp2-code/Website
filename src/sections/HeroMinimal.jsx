@@ -89,22 +89,23 @@ export default function HeroMinimal({
 
             {/* portrait container – same light bg in both modes */}
             <div className="relative ml-auto max-w-[560px] w-full aspect-[3/4] rounded-[28px] overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9]">
-              <img
-                src={photo}
+                <img
+                src={`${import.meta.env.BASE_URL}amogha-portrait.jpg`}
                 alt="Portrait of Amogha"
                 className={[
-                  "h-full w-full object-cover object-center",
-                  bw
+                    "h-full w-full object-cover object-center",
+                    bw
                     ? "[filter:grayscale(100%)_contrast(112%)_brightness(98%)]"
                     : "[filter:grayscale(8%)_contrast(105%)_saturate(108%)]",
-                  "object-[60%_35%] scale-[1.08]",
+                    "object-[60%_35%] scale-[1.08]",
                 ].join(" ")}
                 onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const ph = e.currentTarget.nextElementSibling;
-                  if (ph) ph.style.display = "flex";
+                    e.currentTarget.style.display = "none";
+                    const ph = e.currentTarget.nextElementSibling;
+                    if (ph) ph.style.display = "flex";
                 }}
-              />
+                />
+
               {/* fallback initials */}
               <div className="hidden absolute inset-0 items-center justify-center text-6xl font-semibold text-neutral-300">
                 AM
