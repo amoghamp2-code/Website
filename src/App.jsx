@@ -42,7 +42,7 @@ const ME = {
 /* Marquee Skills */
 const skills = [
   "Embedded C/C++17/20", "Rust", "Yocto/Embedded Linux", "Zephyr/FreeRTOS",
-  "SPI · I²C · UART · CAN", "BLE/MQTT", "Device Drivers", "Secure Boot/OTA",
+  "SPI",  "I²C",  "UART",  "CAN", "BLE/MQTT", "Device Drivers", "Secure Boot/OTA",
   "CMake", "clang-tidy", "Cppcheck", "Unit Testing", "AUTOSAR · ISO 26262 · ASPICE"
 ];
 
