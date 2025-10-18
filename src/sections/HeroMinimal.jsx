@@ -6,7 +6,7 @@ export default function HeroMinimal({
   role = "Embedded Systems Developer",
   tagline = "Rust · C/C++ · Embedded Linux/Yocto · RTOS · Drivers · BLE · OTA",
   resumeHref = "/Amogha_CV.pdf",
-  photo = "/amogha-portrait.png",
+  photo = "/amogha-portrait.jpg",
   bw = true,
 }) {
   return (
