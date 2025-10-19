@@ -1,0 +1,6 @@
+# Allow Google and all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Link to your sitemap
+Sitemap: https://amoghamp.site/sitemap.xml
