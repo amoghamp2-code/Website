@@ -210,7 +210,29 @@ export const projects = [
       "Demonstrated the potential of AR for quick, low-cost educational content creation."
     ]
   }
-}
+}, 
+{
+  slug: "personal-portfolio",
+  title: "Personal Portfolio Website",
+  desc: "Responsive portfolio built from scratch with React and Tailwind CSS, deployed on Vercel with dynamic project data integration.",
+  tags: ["React", "Next.js", "Tailwind CSS", "Vercel", "JavaScript", "Frontend", "Design"],
+  detail: {
+    problem: "Needed a clean, fast, and maintainable web space to showcase academic, industrial, and research projects with version-controlled updates.",
+    approach: [
+      "Designed and developed the site structure in React/Next.js with modular components for easy scaling.",
+      "Used Tailwind CSS for responsive styling and minimal layout overhead across desktop and mobile.",
+      "Configured project data through JSON objects to allow easy content updates without modifying code logic.",
+      "Deployed and continuously updated the site on Vercel with Git integration and automatic builds on commit.",
+      "Optimized metadata, performance, and accessibility for smooth viewing and indexing."
+    ],
+    results: [
+      "Live interactive portfolio displaying categorized technical projects and research outcomes.",
+      "Fully responsive UI with rapid load times and lightweight design (no external heavy frameworks).",
+      "Easily extendable—new projects, sections, or visual styles can be added with minimal code changes."
+    ]
+  }
+},
+
 
 
 ];
