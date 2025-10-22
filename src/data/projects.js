@@ -42,23 +42,25 @@ export const projects = [
 },
 
 {
-  slug: "dualcore-riscv",
-  title: "Dual-Core RISC-V Processor",
-  desc: "Custom symmetric RISC-V CPU designed from scratch in Verilog/VHDL with interrupt controller and direct-mapped cache, validated on FPGA.",
-  tags: ["Verilog", "VHDL", "RISC-V", "FPGA", "Vivado"],
+  slug: "portable-ventilator",
+  title: "Portable Ventilator",
+  desc: "Low-cost Arduino-based ventilator prototype using Ambu bag actuation for emergency respiratory support during COVID-19.",
+  tags: ["Arduino", "C++", "Stepper Motor", "Embedded", "Healthcare", "Mechanical Design"],
   detail: {
-    problem: "Needed a ground-up understanding of RISC-V architecture and multicore CPU design, including custom interrupt and cache logic.",
+    problem: "During the COVID-19 pandemic, ventilator shortages left hospitals and rural clinics unable to support patients needing assisted respiration. The goal was to design a simple, low-cost backup solution using readily available components.",
     approach: [
-      "Developed a dual-core symmetric RISC-V processor from scratch using Verilog, building the ALU, control unit, registers, and interconnects.",
-      "Integrated a custom interrupt controller and implemented a direct-mapped instruction/data cache to improve memory access performance.",
-      "Replaced the default RISC-V core in PULPino with the custom design to evaluate ISA compliance and stability.",
-      "Synthesized and deployed the design on FPGA using Vivado, verifying functional correctness through on-board execution and display output."
+      "Developed a microcontroller-based prototype using Arduino and a stepper motor with a geared linkage to compress a standard Ambu bag.",
+      "Implemented a time-based control loop to regulate breathing rhythm and duration, mimicking manual ventilation cycles.",
+      "Enabled dual power options mains adapter and rechargeable battery to maintain operation during power cuts.",
+      "Constructed the mechanism with lightweight materials for portability and rapid local manufacturing during emergencies.",
+      "Focused on proof-of-concept feasibility and ease of assembly over clinical calibration to prioritize fast deployment in crisis conditions."
     ],
     results: [
-      "Successful boot and execution of simple applications on FPGA hardware.",
-      "Verified stable dual-core operation and interrupt handling with consistent cache performance.",
-      "Demonstrated full integration of a custom RISC-V core into the PULPino SoC framework."
-    ]
+      "Demonstrated consistent mechanical actuation of Ambu bag under lab testing conditions.",
+      "Recognized as a functional prototype and awarded in a Government Ideathon for pandemic-response innovation.",
+      "Showcased the potential of simple embedded-mechanical systems to provide temporary respiratory assistance in resource-limited settings."
+    ],
+    disclaimer: "Prototype built for demonstration and innovation challenge purposes; not a certified medical device."
   }
 },
 
@@ -83,28 +85,28 @@ export const projects = [
     ]
   }
 },
+
 {
-  slug: "portable-ventilator",
-  title: "Portable Ventilator",
-  desc: "Low-cost Arduino-based ventilator prototype using Ambu bag actuation for emergency respiratory support during COVID-19.",
-  tags: ["Arduino", "C++", "Stepper Motor", "Embedded", "Healthcare", "Mechanical Design"],
+  slug: "dualcore-riscv",
+  title: "Dual-Core RISC-V Processor",
+  desc: "Custom symmetric RISC-V CPU designed from scratch in Verilog/VHDL with interrupt controller and direct-mapped cache, validated on FPGA.",
+  tags: ["Verilog", "VHDL", "RISC-V", "FPGA", "Vivado"],
   detail: {
-    problem: "During the COVID-19 pandemic, ventilator shortages left hospitals and rural clinics unable to support patients needing assisted respiration. The goal was to design a simple, low-cost backup solution using readily available components.",
+    problem: "Needed a ground-up understanding of RISC-V architecture and multicore CPU design, including custom interrupt and cache logic.",
     approach: [
-      "Developed a microcontroller-based prototype using Arduino and a stepper motor with a geared linkage to compress a standard Ambu bag.",
-      "Implemented a time-based control loop to regulate breathing rhythm and duration, mimicking manual ventilation cycles.",
-      "Enabled dual power options mains adapter and rechargeable battery to maintain operation during power cuts.",
-      "Constructed the mechanism with lightweight materials for portability and rapid local manufacturing during emergencies.",
-      "Focused on proof-of-concept feasibility and ease of assembly over clinical calibration to prioritize fast deployment in crisis conditions."
+      "Developed a dual-core symmetric RISC-V processor from scratch using Verilog, building the ALU, control unit, registers, and interconnects.",
+      "Integrated a custom interrupt controller and implemented a direct-mapped instruction/data cache to improve memory access performance.",
+      "Replaced the default RISC-V core in PULPino with the custom design to evaluate ISA compliance and stability.",
+      "Synthesized and deployed the design on FPGA using Vivado, verifying functional correctness through on-board execution and display output."
     ],
     results: [
-      "Demonstrated consistent mechanical actuation of Ambu bag under lab testing conditions.",
-      "Recognized as a functional prototype and awarded in a Government Ideathon for pandemic-response innovation.",
-      "Showcased the potential of simple embedded-mechanical systems to provide temporary respiratory assistance in resource-limited settings."
-    ],
-    disclaimer: "Prototype built for demonstration and innovation challenge purposes; not a certified medical device."
+      "Successful boot and execution of simple applications on FPGA hardware.",
+      "Verified stable dual-core operation and interrupt handling with consistent cache performance.",
+      "Demonstrated full integration of a custom RISC-V core into the PULPino SoC framework."
+    ]
   }
 },
+
 {
   slug: "smart-farm",
   title: "Smart Farm Monitoring System",
