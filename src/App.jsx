@@ -29,7 +29,7 @@ function useTheme() {
 const ME = {
   name: "Amogha M P",
   title: "Embedded Systems Developer",
-  tagline: "Rust · C/C++ · Embedded Linux/Yocto · RTOS · Drivers · BLE · OTA",
+  tagline: "Rust · C/C++ · Embedded Linux · Yocto · RTOS · Drivers · BLE · OTA",
   email: "amoghamp@gmail.com",
   phone: "+49 155 1021 7648",
   linkedin: "https://www.linkedin.com/in/amogha-m-p-7978881a7/",
@@ -69,7 +69,7 @@ export default function App() {
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/30 border-b dark:border-neutral-900">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <Link to="/" className="font-semibold tracking-tight">amogha.dev</Link>
+          <Link to="/" className="font-semibold tracking-tight">Welcome</Link>
           <nav className="hidden md:flex items-center gap-6 text-sm uppercase tracking-wide">
             <a className="hover:opacity-80" href="#work">Work</a>
             <a className="hover:opacity-80" href="#experience">Experience</a>
@@ -143,7 +143,7 @@ export default function App() {
         <div className="grid gap-6">
           <Card className="hover:shadow-sm transition-shadow">
             <CardContent className="p-6">
-              <h3 className="font-medium">Master Thesis — Stateful Failure Tracking (Modular Industrial Routers)</h3>
+              <h3 className="font-medium">Master Thesis - Stateful Failure Tracking (Modular Industrial Routers)</h3>
               <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · 2025 · Stuttgart</p>
               <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
                 <li>Dependency-aware fault correlation; robust recovery design.</li>
@@ -154,7 +154,7 @@ export default function App() {
           </Card>
           <Card className="hover:shadow-sm transition-shadow">
             <CardContent className="p-6">
-              <h3 className="font-medium">R&D Intern — Embedded/Rust</h3>
+              <h3 className="font-medium">R&D Intern - Embedded/Rust</h3>
               <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · 2025</p>
               <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
                 <li>Rust service bridging app ↔ system daemons; Yocto integration; cxx interop.</li>
@@ -176,7 +176,7 @@ export default function App() {
       </Section>
 
       {/* CONTACT */}
-      <Section id="contact" title="Let’s talk" subtitle="Based in Stuttgart · Open to Embedded Linux / RTOS / Rust–C++ roles.">
+      <Section id="contact" title="Let’s talk" subtitle="Based in Stuttgart · Open to Embedded Linux / RTOS / Rust / C++ roles.">
         <div className="flex flex-wrap items-center gap-3">
           <a href={`mailto:${ME.email}`}><Button><Mail className="h-4 w-4 mr-2" /> Email</Button></a>
           <a href={ME.linkedin} target="_blank" rel="noreferrer"><Button variant="secondary"><Linkedin className="h-4 w-4 mr-2" /> LinkedIn</Button></a>

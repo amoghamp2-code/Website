@@ -4,7 +4,7 @@ import { FileDown } from "lucide-react";
 export default function HeroMinimal({
   name = "Amogha M P",
   role = "Embedded Systems Developer",
-  tagline = "Rust · C/C++ · Embedded Linux/Yocto · RTOS · Drivers · BLE · OTA",
+  tagline = "Rust · C · C++ · Embedded Linux · Yocto · RTOS · Drivers · BLE · OTA",
   resumeHref = "/Amogha_CV.pdf",
   photo = `${import.meta.env.BASE_URL}amogha-portrait.jpg`,
   bw = true,
