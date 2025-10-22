@@ -21,46 +21,6 @@ export const projects = [
   }
 },
 {
-  slug: "dualcore-riscv",
-  title: "Dual-Core RISC-V Processor",
-  desc: "Custom symmetric RISC-V CPU designed from scratch in Verilog/VHDL with interrupt controller and direct-mapped cache, validated on FPGA.",
-  tags: ["Verilog", "VHDL", "RISC-V", "FPGA", "Vivado"],
-  detail: {
-    problem: "Needed a ground-up understanding of RISC-V architecture and multicore CPU design, including custom interrupt and cache logic.",
-    approach: [
-      "Developed a dual-core symmetric RISC-V processor from scratch using Verilog, building the ALU, control unit, registers, and interconnects.",
-      "Integrated a custom interrupt controller and implemented a direct-mapped instruction/data cache to improve memory access performance.",
-      "Replaced the default RISC-V core in PULPino with the custom design to evaluate ISA compliance and stability.",
-      "Synthesized and deployed the design on FPGA using Vivado, verifying functional correctness through on-board execution and display output."
-    ],
-    results: [
-      "Successful boot and execution of simple applications on FPGA hardware.",
-      "Verified stable dual-core operation and interrupt handling with consistent cache performance.",
-      "Demonstrated full integration of a custom RISC-V core into the PULPino SoC framework."
-    ]
-  }
-},
-{
-  slug: "skin-cancer-detection",
-  title: "Skin Cancer Detection (Raspberry Pi + DL)",
-  desc: "Government-funded device using EfficientNet-B7 for melanoma detection on low-cost embedded hardware.",
-  tags: ["Python", "Deep Learning", "EfficientNet-B7", "Raspberry Pi", "Healthcare AI"],
-  detail: {
-    problem: "Early detection of melanoma is difficult in rural areas lacking dermatology specialists or advanced diagnostic tools.",
-    approach: [
-      "Collected and curated image data from the HAM10000 dataset and a local cancer hospital (with patient consent) to build a representative dataset.",
-      "Trained an EfficientNet-B7 model for melanoma classification, balancing model size and accuracy for embedded inference.",
-      "Deployed the model on a Raspberry Pi prototype configured for offline analysis to deliver real-time preliminary diagnosis without cloud dependency.",
-      "Integrated a simple camera interface and on-device inference pipeline to ensure usability in low-infrastructure environments."
-    ],
-    results: [
-      "Demonstrated reliable on-device detection of melanoma on low-cost hardware.",
-      "Prototype supported early screening in remote regions, reducing reliance on centralized hospitals.",
-      "Developed as part of a Government of Karnataka–funded initiative for affordable rural healthcare innovation."
-    ]
-  }
-},
-{
   slug: "advanced-mining-suit",
   title: "Advanced Mining Suit (ESP32)",
   desc: "Carbon-fiber smart suit with gas, temperature, motion, heart-rate sensing and ESP-NOW multi-hop alerts for no-coverage mines.",
@@ -81,6 +41,48 @@ export const projects = [
   }
 },
 
+{
+  slug: "dualcore-riscv",
+  title: "Dual-Core RISC-V Processor",
+  desc: "Custom symmetric RISC-V CPU designed from scratch in Verilog/VHDL with interrupt controller and direct-mapped cache, validated on FPGA.",
+  tags: ["Verilog", "VHDL", "RISC-V", "FPGA", "Vivado"],
+  detail: {
+    problem: "Needed a ground-up understanding of RISC-V architecture and multicore CPU design, including custom interrupt and cache logic.",
+    approach: [
+      "Developed a dual-core symmetric RISC-V processor from scratch using Verilog, building the ALU, control unit, registers, and interconnects.",
+      "Integrated a custom interrupt controller and implemented a direct-mapped instruction/data cache to improve memory access performance.",
+      "Replaced the default RISC-V core in PULPino with the custom design to evaluate ISA compliance and stability.",
+      "Synthesized and deployed the design on FPGA using Vivado, verifying functional correctness through on-board execution and display output."
+    ],
+    results: [
+      "Successful boot and execution of simple applications on FPGA hardware.",
+      "Verified stable dual-core operation and interrupt handling with consistent cache performance.",
+      "Demonstrated full integration of a custom RISC-V core into the PULPino SoC framework."
+    ]
+  }
+},
+
+{
+  slug: "ar-hmi-iiot",
+  title: "AR HMI for IIoT (ThingWorx + Creo)",
+  desc: "Mobile AR demo linking IIoT production metrics from ThingWorx to 3D equipment models in Creo for contextual HMI visualization.",
+  tags: ["AR", "IIoT", "ThingWorx", "Creo", "Mobile AR", "Industrial UX", "Blender"],
+  detail: {
+    problem: "Operators and engineers face cognitive overload when switching between physical equipment and separate HMI dashboards during monitoring tasks.",
+    approach: [
+      "Developed during an internship at IIT Delhi to explore AR-assisted visualization of industrial data.",
+      "Integrated live production metrics from PTC ThingWorx into CAD models built in Creo.",
+      "Used Blender to create lightweight motion cues and state-change animations (e.g., flow arrows, status transitions) to make KPIs glanceable in AR.",
+      "Displayed contextual HMI data—such as throughput, temperature, and alerts—directly on the corresponding machine component via mobile AR.",
+      "Focused on visual clarity and alignment of virtual overlays for real-time situational awareness."
+    ],
+    results: [
+      "Demonstrated a working proof-of-concept showing real IIoT data mapped onto 3D physical assets.",
+      "Reduced cognitive load by eliminating the need to reference separate control screens.",
+      "Provided a scalable foundation for future AR–HMI integrations in manufacturing environments."
+    ]
+  }
+},
 {
   slug: "portable-ventilator",
   title: "Portable Ventilator",
@@ -145,26 +147,26 @@ export const projects = [
   }
 },
 {
-  slug: "ar-hmi-iiot",
-  title: "AR HMI for IIoT (ThingWorx + Creo)",
-  desc: "Mobile AR demo linking IIoT production metrics from ThingWorx to 3D equipment models in Creo for contextual HMI visualization.",
-  tags: ["AR", "IIoT", "ThingWorx", "Creo", "Mobile AR", "Industrial UX", "Blender"],
+  slug: "skin-cancer-detection",
+  title: "Skin Cancer Detection (Raspberry Pi + DL)",
+  desc: "Government-funded device using EfficientNet-B7 for melanoma detection on low-cost embedded hardware.",
+  tags: ["Python", "Deep Learning", "EfficientNet-B7", "Raspberry Pi", "Healthcare AI"],
   detail: {
-    problem: "Operators and engineers face cognitive overload when switching between physical equipment and separate HMI dashboards during monitoring tasks.",
+    problem: "Early detection of melanoma is difficult in rural areas lacking dermatology specialists or advanced diagnostic tools.",
     approach: [
-      "Developed during an internship at IIT Delhi to explore AR-assisted visualization of industrial data.",
-      "Integrated live production metrics from PTC ThingWorx into CAD models built in Creo.",
-      "Used Blender to create lightweight motion cues and state-change animations (e.g., flow arrows, status transitions) to make KPIs glanceable in AR.",
-      "Displayed contextual HMI data—such as throughput, temperature, and alerts—directly on the corresponding machine component via mobile AR.",
-      "Focused on visual clarity and alignment of virtual overlays for real-time situational awareness."
+      "Collected and curated image data from the HAM10000 dataset and a local cancer hospital (with patient consent) to build a representative dataset.",
+      "Trained an EfficientNet-B7 model for melanoma classification, balancing model size and accuracy for embedded inference.",
+      "Deployed the model on a Raspberry Pi prototype configured for offline analysis to deliver real-time preliminary diagnosis without cloud dependency.",
+      "Integrated a simple camera interface and on-device inference pipeline to ensure usability in low-infrastructure environments."
     ],
     results: [
-      "Demonstrated a working proof-of-concept showing real IIoT data mapped onto 3D physical assets.",
-      "Reduced cognitive load by eliminating the need to reference separate control screens.",
-      "Provided a scalable foundation for future AR–HMI integrations in manufacturing environments."
+      "Demonstrated reliable on-device detection of melanoma on low-cost hardware.",
+      "Prototype supported early screening in remote regions, reducing reliance on centralized hospitals.",
+      "Developed as part of a Government of Karnataka–funded initiative for affordable rural healthcare innovation."
     ]
   }
 },
+
 {
   slug: "ar-soldering-training",
   title: "AR-Assisted Soldering Training (Schneider Electric)",
