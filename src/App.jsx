@@ -36,7 +36,7 @@ const ME = {
   github: "#",
   resume: "/Amogha_CV.pdf",
   reference: "/Belden_Reference.pdf",
-  location: "Stuttgart, Germany",
+  location: "Germany",
 };
 
 /* Marquee Skills */
@@ -75,6 +75,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link to="/" className="font-semibold tracking-tight">Welcome</Link>
           <nav className="hidden md:flex items-center gap-6 text-sm uppercase tracking-wide">
+            <a className="hover:opacity-80" href="#about">About</a>
             <a className="hover:opacity-80" href="#work">Work</a>
             <a className="hover:opacity-80" href="#experience">Experience</a>
             <a className="hover:opacity-80" href="#contact">Contact</a>
@@ -98,6 +99,31 @@ export default function App() {
         resumeHref={ME.resume}
         photo="/amogha-portrait.jpg"
       />
+
+      {/* ABOUT ME */}
+      <Section
+        id="about"
+        title="About Me"
+        subtitle="A little more beyond code."
+      >
+        <div className="text-muted-foreground max-w-3xl space-y-4">
+          <p>
+            I’m Amogha an <strong>Embedded Systems Developer</strong> who enjoys solving 
+            real-world problems at the intersection of hardware and software.
+          </p>
+          <p>
+            Outside of work, you’ll usually find me on a football field, 
+            out for a long run, or experimenting with vegetarian recipes in the kitchen.
+            I like to keep things light-hearted — I’m known to crack a joke or two even 
+            in debugging sessions.
+          </p>
+          <p>
+            I enjoy reading when inspiration strikes and love exploring new places whenever I can.
+            For me, balance means blending <em>technical precision</em> with a bit of <em>fun and curiosity</em>.
+          </p>
+        </div>
+      </Section>
+
 
       {/* SKILLS marquee */}
       <section className="border-y dark:border-neutral-900 py-3">
@@ -168,7 +194,7 @@ export default function App() {
           </Card>
           <Card className="hover:shadow-sm transition-shadow">
             <CardContent className="p-6">
-              <h3 className="font-medium">Research Assistant — BLE Sensor Nodes</h3>
+              <h3 className="font-medium">Research Assistant BLE Sensor Nodes</h3>
               <p className="text-sm text-muted-foreground">University of Stuttgart · 2024</p>
               <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
                 <li>CC2651R3SIPA firmware; SPI/I²C drivers; power-aware buffering.</li>

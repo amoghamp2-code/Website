@@ -75,7 +75,7 @@ export const projects = [
       "Developed during an internship at IIT Delhi to explore AR-assisted visualization of industrial data.",
       "Integrated live production metrics from PTC ThingWorx into CAD models built in Creo.",
       "Used Blender to create lightweight motion cues and state-change animations (e.g., flow arrows, status transitions) to make KPIs glanceable in AR.",
-      "Displayed contextual HMI data—such as throughput, temperature, and alerts—directly on the corresponding machine component via mobile AR.",
+      "Displayed contextual HMI data such as throughput, temperature, and alerts directly on the corresponding machine component via mobile AR.",
       "Focused on visual clarity and alignment of virtual overlays for real-time situational awareness."
     ],
     results: [
@@ -199,7 +199,7 @@ export const projects = [
     problem: "Students often struggle to understand oscilloscope controls and measurement principles without direct lab access.",
     approach: [
       "Built as a self-learning AR project using Unity for mobile devices.",
-      "Displayed virtual overlays explaining each knob’s function—time/div, volts/div, trigger, etc. to simulate interaction without the real instrument.",
+      "Displayed virtual overlays explaining each knob’s function time/div, volts/div, trigger, etc. to simulate interaction without the real instrument.",
       "Created concise Blender animations for knob-turn feedback, trigger edge behavior, and scaling effects to reinforce concepts.",
       "Added guided prompts and annotations to connect concepts like waveform scaling and triggering to their practical purpose.",
       "Focused on visual clarity and conceptual understanding rather than hardware simulation."
@@ -228,7 +228,7 @@ export const projects = [
     results: [
       "Live interactive portfolio displaying categorized technical projects and research outcomes.",
       "Fully responsive UI with rapid load times and lightweight design (no external heavy frameworks).",
-      "Easily extendable—new projects, sections, or visual styles can be added with minimal code changes."
+      "Easily extendable new projects, sections, or visual styles can be added with minimal code changes."
     ]
   }
 },
