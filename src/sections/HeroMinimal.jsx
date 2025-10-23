@@ -13,7 +13,7 @@ export default function HeroMinimal({
   const prettyName = name.replace(/ (?!.* )/, "\u00A0");
 
   return (
-    <section className="relative overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9] pt-12 md:pt-20 pb-8 md:pb-16">
+    <section className="relative overflow-hidden bg-[#EEF4F9] dark:bg-[#EEF4F9] pt-12 md:pt-20 pb-6 md:pb-12">
       {/* Subtle background gradient overlay */}
       <div
         className="pointer-events-none absolute inset-0 z-0"

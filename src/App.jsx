@@ -49,9 +49,12 @@ const skills = [
 /* Layout helper */
 function Section({ id, title, children, subtitle }) {
   return (
-    <section id={id} className="py-16 md:py-24">
+    <section
+      id={id}
+      className="py-12 md:py-16 scroll-mt-20 md:scroll-mt-24"
+    >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="mb-10">
+        <div className="mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{title}</h2>
           {subtitle && <p className="text-muted-foreground mt-2 max-w-3xl">{subtitle}</p>}
         </div>
@@ -61,11 +64,12 @@ function Section({ id, title, children, subtitle }) {
   );
 }
 
+
 export default function App() {
   const { theme, toggle } = useTheme();
 
   return (
-    <div className="min-h-dvh bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <div className="min-h-dvh bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 scroll-smooth">
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/30 border-b dark:border-neutral-900">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
