@@ -46,15 +46,14 @@ const skills = [
   "CMake","Unit Testing"
 ];
 
-/* Layout helper */
 function Section({ id, title, children, subtitle }) {
   return (
     <section
       id={id}
-      className="py-12 md:py-16 scroll-mt-20 md:scroll-mt-24"
+      className="pt-8 md:pt-10 pb-8 md:pb-10 scroll-mt-20 md:scroll-mt-24"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="mb-6 md:mb-8">
+        <div className="mb-5 md:mb-6">
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{title}</h2>
           {subtitle && <p className="text-muted-foreground mt-2 max-w-3xl">{subtitle}</p>}
         </div>
@@ -63,6 +62,7 @@ function Section({ id, title, children, subtitle }) {
     </section>
   );
 }
+
 
 
 export default function App() {
