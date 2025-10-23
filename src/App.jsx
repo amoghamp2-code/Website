@@ -176,7 +176,7 @@ export default function App() {
       </Section>
 
       {/* CONTACT */}
-      <Section id="contact" title="Let’s talk" subtitle="Based in Stuttgart · Open to Embedded Linux / RTOS / Rust / C++ roles.">
+      <Section id="contact" title="Let’s talk" subtitle="Based in Germany · Open to Embedded Linux / RTOS / Rust / C++ roles.">
         <div className="flex flex-wrap items-center gap-3">
           <a href={`mailto:${ME.email}`}><Button><Mail className="h-4 w-4 mr-2" /> Email</Button></a>
           <a href={ME.linkedin} target="_blank" rel="noreferrer"><Button variant="secondary"><Linkedin className="h-4 w-4 mr-2" /> LinkedIn</Button></a>
