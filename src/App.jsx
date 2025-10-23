@@ -99,7 +99,19 @@ export default function App() {
         resumeHref={ME.resume}
         photo="/amogha-portrait.jpg"
       />
-
+      {/* SKILLS marquee */}
+      <section className="border-y dark:border-neutral-900 py-3">
+        <div className="max-w-6xl mx-auto px-4 overflow-hidden">
+          <div className="animate-[scroll_30s_linear_infinite] whitespace-nowrap text-sm md:text-base">
+            {skills.concat(skills).map((s, i) => (
+              <span key={i} className="inline-flex items-center gap-2 mr-5 opacity-80">
+                <span>•</span> {s}
+              </span>
+            ))}
+          </div>
+        </div>
+        <style>{`@keyframes scroll {0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
+      </section>
       {/* ABOUT ME */}
       <Section
         id="about"
@@ -114,7 +126,7 @@ export default function App() {
           <p>
             Outside of work, you’ll usually find me on a football field, 
             out for a long run, or experimenting with vegetarian recipes in the kitchen.
-            I like to keep things light-hearted — I’m known to crack a joke or two even 
+            I like to keep things light-hearted I’m known to crack a joke or two even 
             in debugging sessions.
           </p>
           <p>
@@ -123,22 +135,6 @@ export default function App() {
           </p>
         </div>
       </Section>
-
-
-      {/* SKILLS marquee */}
-      <section className="border-y dark:border-neutral-900 py-3">
-        <div className="max-w-6xl mx-auto px-4 overflow-hidden">
-          <div className="animate-[scroll_30s_linear_infinite] whitespace-nowrap text-sm md:text-base">
-            {skills.concat(skills).map((s, i) => (
-              <span key={i} className="inline-flex items-center gap-2 mr-5 opacity-80">
-                <span>•</span> {s}
-              </span>
-            ))}
-          </div>
-        </div>
-        <style>{`@keyframes scroll {0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
-      </section>
-
       {/* WORK */}
       <Section id="work" title="Selected Work" subtitle="Click a project for detailed case study.">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:balance]">
