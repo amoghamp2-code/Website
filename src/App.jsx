@@ -7,6 +7,25 @@ import HeroMinimal from "./sections/HeroMinimal.jsx";
 import { Button } from "./components/ui/button.jsx";
 import { Card, CardContent } from "./components/ui/card.jsx";
 import { Badge } from "./components/ui/badge.jsx";
+import { Analytics } from "@vercel/analytics/next"
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage.jsx";
+import BlogPost from "./pages/BlogPost.jsx";
+
+import Blog from "./sections/Blog.jsx";
+
+export default function HomePage() {
+  return (
+    <>
+      <HeroMinimal />
+      <About />
+      <SelectedWork />
+      <Blog /> {/* 👈 new */}
+      <Experience />
+    </>
+  );
+}
+
 
 /* Theme handler */
 function useTheme() {
@@ -215,6 +234,7 @@ export default function App() {
 </Section>
 
 
+
       {/* CONTACT */}
       <Section id="contact" title="Let’s talk" subtitle="Based in Germany · Open to Embedded Linux / RTOS / Rust / C++ roles.">
         <div className="flex flex-wrap items-center gap-3">
@@ -235,4 +255,5 @@ export default function App() {
       </footer>
     </div>
   );
+
 }
