@@ -166,40 +166,55 @@ export default function App() {
 
       {/* EXPERIENCE */}
       <Section id="experience" title="Experience">
-        <div className="grid gap-6">
-          <Card className="hover:shadow-sm transition-shadow">
-            <CardContent className="p-6">
-              <h3 className="font-medium">Master Thesis - Stateful Failure Tracking (Modular Industrial Routers)</h3>
-              <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · 2025 · Stuttgart</p>
-              <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
-                <li>Dependency-aware fault correlation; robust recovery design.</li>
-                <li>Rust/C++ components on Embedded Linux with tests & logging.</li>
-                <li>OTA/version binding concept for safe rollbacks.</li>
-              </ul>
-            </CardContent>
-          </Card>
-          <Card className="hover:shadow-sm transition-shadow">
-            <CardContent className="p-6">
-              <h3 className="font-medium">R&D Intern - Embedded/Rust</h3>
-              <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · 2025</p>
-              <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
-                <li>Rust service bridging app ↔ system daemons; Yocto integration; cxx interop.</li>
-                <li>Tooling uplift: clang-tidy, Cppcheck, GitHub Actions CI.</li>
-              </ul>
-            </CardContent>
-          </Card>
-          <Card className="hover:shadow-sm transition-shadow">
-            <CardContent className="p-6">
-              <h3 className="font-medium">Research Assistant BLE Sensor Nodes</h3>
-              <p className="text-sm text-muted-foreground">University of Stuttgart · 2024</p>
-              <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
-                <li>CC2651R3SIPA firmware; SPI/I²C drivers; power-aware buffering.</li>
-                <li>Gateway sync & metrics on Raspberry Pi.</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </Section>
+  <div className="grid gap-6">
+    <Card className="hover:shadow-sm transition-shadow">
+      <CardContent className="p-6">
+        <h3 className="font-medium">Master Thesis – Stateful Failure Tracking (Modular Industrial Routers)</h3>
+        <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · Oct 2023 – Present · Stuttgart</p>
+        <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
+          <li>Developing modular, stateful failure monitoring for industrial routers.</li>
+          <li>Designing platform-agnostic fault detection, isolation, and recovery concepts.</li>
+          <li>Implementing Rust/C++ components with logging and automated test workflows.</li>
+        </ul>
+      </CardContent>
+    </Card>
+
+    <Card className="hover:shadow-sm transition-shadow">
+      <CardContent className="p-6">
+        <h3 className="font-medium">R&D Intern – Embedded Systems (Rust)</h3>
+        <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · Feb 2025 – Aug 2025</p>
+        <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
+          <li>Developed Rust proxy applications bridging user-space services with system daemons.</li>
+          <li>Integrated Rust–C++ interop using the <code>cxx</code> crate; embedded into Yocto builds.</li>
+          <li>Enhanced CI pipelines (clang-tidy, Cppcheck, GitHub Actions) for static analysis.</li>
+        </ul>
+      </CardContent>
+    </Card>
+
+    <Card className="hover:shadow-sm transition-shadow">
+      <CardContent className="p-6">
+        <h3 className="font-medium">Research Assistant – BLE Sensor Nodes</h3>
+        <p className="text-sm text-muted-foreground">University of Stuttgart · Jan 2024 – Jan 2025</p>
+        <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
+          <li>Built CC2651R3SIPA firmware in Embedded C with SPI/I²C drivers and power-aware buffering.</li>
+          <li>Developed gateway synchronization and performance metrics on Raspberry Pi.</li>
+        </ul>
+      </CardContent>
+    </Card>
+
+    <Card className="hover:shadow-sm transition-shadow">
+      <CardContent className="p-6">
+        <h3 className="font-medium">Early Internship Experience</h3>
+        <p className="text-sm text-muted-foreground">Various · 2021 – 2023</p>
+        <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
+          <li>Prototyped AR-based training and monitoring solutions using Unity, Blender, and Vuforia SDK.</li>
+          <li>Integrated IIoT and robotic systems at IIT Madras for digital-twin and HMI research.</li>
+        </ul>
+      </CardContent>
+    </Card>
+  </div>
+</Section>
+
 
       {/* CONTACT */}
       <Section id="contact" title="Let’s talk" subtitle="Based in Germany · Open to Embedded Linux / RTOS / Rust / C++ roles.">
