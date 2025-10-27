@@ -174,7 +174,7 @@ export default function App() {
         <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
           <li>Developing modular, stateful failure monitoring for industrial routers.</li>
           <li>Designing platform-agnostic fault detection, isolation, and recovery concepts.</li>
-          <li>Implementing Rust/C++ components with logging and automated test workflows.</li>
+          <li>Implementing C++ components with logging and automated test workflows.</li>
         </ul>
       </CardContent>
     </Card>
@@ -186,7 +186,6 @@ export default function App() {
         <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
           <li>Developed Rust proxy applications bridging user-space services with system daemons.</li>
           <li>Integrated Rust–C++ interop using the <code>cxx</code> crate; embedded into Yocto builds.</li>
-          <li>Enhanced CI pipelines (clang-tidy, Cppcheck, GitHub Actions) for static analysis.</li>
         </ul>
       </CardContent>
     </Card>
@@ -197,7 +196,7 @@ export default function App() {
         <p className="text-sm text-muted-foreground">University of Stuttgart · Jan 2024 – Jan 2025</p>
         <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
           <li>Built CC2651R3SIPA firmware in Embedded C with SPI/I²C drivers and power-aware buffering.</li>
-          <li>Developed gateway synchronization and performance metrics on Raspberry Pi.</li>
+          <li>Developed gateway synchronization to Raspberry Pi.</li>
         </ul>
       </CardContent>
     </Card>
