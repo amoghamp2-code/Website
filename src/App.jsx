@@ -170,7 +170,7 @@ export default function App() {
     <Card className="hover:shadow-sm transition-shadow">
       <CardContent className="p-6">
         <h3 className="font-medium">Master Thesis – Stateful Failure Tracking (Modular Industrial Routers)</h3>
-        <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · Oct 2023 – Present · Stuttgart</p>
+        <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · Oct 2025 – Present · Stuttgart</p>
         <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
           <li>Developing modular, stateful failure monitoring for industrial routers.</li>
           <li>Designing platform-agnostic fault detection, isolation, and recovery concepts.</li>
@@ -182,7 +182,7 @@ export default function App() {
     <Card className="hover:shadow-sm transition-shadow">
       <CardContent className="p-6">
         <h3 className="font-medium">R&D Intern – Embedded Systems (Rust)</h3>
-        <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · Feb 2025 – Aug 2025</p>
+        <p className="text-sm text-muted-foreground">Belden / Hirschmann Automation · Feb 2025 – Sep 2025</p>
         <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-muted-foreground">
           <li>Developed Rust proxy applications bridging user-space services with system daemons.</li>
           <li>Integrated Rust–C++ interop using the <code>cxx</code> crate; embedded into Yocto builds.</li>
