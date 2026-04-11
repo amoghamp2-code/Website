@@ -79,6 +79,7 @@ export default function App() {
             <a className="hover:opacity-80" href="#work">Work</a>
             <a className="hover:opacity-80" href="#experience">Experience</a>
             <a className="hover:opacity-80" href="#contact">Contact</a>
+            <Link className="hover:opacity-80 text-blue-600 dark:text-blue-400" to="/career-analyzer">AI Analyzer</Link>
           </nav>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" onClick={toggle}>
