@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../components/ui/button.jsx";
@@ -141,6 +141,16 @@ export default function CareerAnalyzer() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [controller, setController] = useState(null);
+  const [dark, setDark] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return document.documentElement.classList.contains("dark");
+  });
+
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    setDark(isDark);
+  }
 
   async function analyze() {
     const ac = new AbortController();
@@ -176,7 +186,12 @@ export default function CareerAnalyzer() {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/30 border-b dark:border-neutral-900">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link to="/" className="font-semibold tracking-tight">amogha.dev</Link>
-          <Link className="text-sm hover:opacity-80 underline underline-offset-4" to="/">← Back to Portfolio</Link>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" onClick={toggleTheme}>
+              {dark ? "Light" : "Dark"}
+            </Button>
+            <Link className="text-sm hover:opacity-80 underline underline-offset-4" to="/">← Portfolio</Link>
+          </div>
         </div>
       </header>
 
