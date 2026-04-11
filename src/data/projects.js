@@ -1,6 +1,30 @@
 // src/data/projects.js
 export const projects = [
 {
+  slug: "career-analyzer",
+  title: "AI Career Opportunity Analyzer",
+  desc: "Multi-step LLM workflow that compares resumes with job descriptions, returning structured match scores, skill gaps, and learning roadmaps.",
+  tags: ["FastAPI", "Python", "Groq API", "Llama 3.3 70B", "Docker", "React", "LLM Orchestration"],
+  liveUrl: "/career-analyzer",
+  detail: {
+    problem: "Job seekers struggle to objectively assess their fit for roles, identify skill gaps, and prioritize what to learn next.",
+    approach: [
+      "Built a FastAPI backend that orchestrates a multi-step LLM pipeline: resume extraction, job description parsing, and structured comparison.",
+      "Integrated Groq API with Llama 3.3 70B for fast, high-quality structured JSON output from each pipeline stage.",
+      "Added PDF text extraction using PyMuPDF so users can upload resumes directly.",
+      "Designed fixed output sections (match score, strengths, gaps, suggested roles, learning roadmap) to deliver a product experience rather than free-form chat.",
+      "Containerized the backend with Docker and deployed on Render for free hosting.",
+      "Built a React frontend with animated architecture diagram, circular score ring, and color-coded result cards."
+    ],
+    results: [
+      "End-to-end analysis completes in under 10 seconds using Groq API.",
+      "Structured, explainable output that goes beyond generic AI chat responses.",
+      "Fully deployed and publicly accessible as a live demo on the portfolio site.",
+      "Demonstrates LLM API integration, multi-step orchestration, document parsing, and FastAPI backend design."
+    ]
+  }
+},
+{
   slug: "update-manager",
   title: "HW/SW Update Manager",
   desc: "Ensures correct firmware-hardware pairing with OTA updates via BLE between Raspberry Pi and CC2651R3SIPA nodes.",

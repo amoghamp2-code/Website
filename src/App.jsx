@@ -142,7 +142,7 @@ export default function App() {
           {projects.map((p) => (
             <div key={p.slug} className="mb-6 break-inside-avoid relative group">
               {/* invisible clickable overlay */}
-              <Link to={`/work/${p.slug}`} className="absolute inset-0 z-10" aria-label={`Open ${p.title}`}></Link>
+              <Link to={p.liveUrl || `/work/${p.slug}`} className="absolute inset-0 z-10" aria-label={`Open ${p.title}`}></Link>
 
               <div className="hover:shadow-lg transition-shadow relative z-0 rounded-2xl border dark:border-neutral-900 bg-white/60 dark:bg-white/5">
                 <div className="p-5">
