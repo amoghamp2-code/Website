@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button.jsx";
 import { Card, CardContent } from "../components/ui/card.jsx";
 
-const API = `http://${window.location.hostname}:8001`;
+const API = import.meta.env.PROD
+  ? "https://website-s4yl.onrender.com"
+  : `http://${window.location.hostname}:8001`;
 
 export default function CareerAnalyzer() {
   const [resume, setResume] = useState("");
