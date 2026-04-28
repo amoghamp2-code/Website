@@ -2,10 +2,15 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../components/ui/button.jsx";
+import * as pdfjsLib from "pdfjs-dist";
 
+pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url
+).toString();
 const API = import.meta.env.PROD
-  ? "https://website-s4yl.onrender.com"
-  : `http://${window.location.hostname}:8001`;
+  ? "/api"
+  : import.meta.env.VITE_API_URL || `http://${window.location.hostname}:8001`;
 
 /* ── Architecture Pipeline ── */
 const steps = [
@@ -17,7 +22,26 @@ const steps = [
 ];
 
 const techStack = ["FastAPI", "Groq API", "Llama 3.3 70B", "Docker", "React", "PyMuPDF", "Python"];
+async function extractTextFromPdf(file) {
+  const arrayBuffer = await file.arrayBuffer();
 
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+  let fullText = "";
+
+  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+    const page = await pdf.getPage(pageNumber);
+    const textContent = await page.getTextContent();
+
+    const pageText = textContent.items
+      .map((item) => item.str || "")
+      .join(" ");
+
+    fullText += pageText + "\n\n";
+  }
+
+  return fullText.trim();
+}
 function Pipeline() {
   return (
     <div className="relative mt-10 mb-2 p-6 rounded-2xl border dark:border-neutral-800 bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-900/50 dark:to-neutral-950">
@@ -233,14 +257,24 @@ export default function CareerAnalyzer() {
                     onChange={async (e) => {
                       const file = e.target.files?.[0];
                       if (!file) return;
-                      const form = new FormData();
-                      form.append("file", file);
+
+                      setError(null);
+
                       try {
-                        const res = await fetch(`${API}/extract-pdf`, { method: "POST", body: form });
-                        const data = await res.json();
-                        setResume(data.text);
-                      } catch (err) { setError("PDF extraction failed: " + err.message); }
-                      e.target.value = "";
+                        const extractedText = await extractTextFromPdf(file);
+
+                        if (!extractedText) {
+                          setError("No readable text could be extracted from this PDF. Please paste your resume text manually.");
+                          return;
+                        }
+
+                        setResume(extractedText);
+                      } catch (err) {
+                        console.error("PDF extraction failed:", err);
+                        setError("PDF extraction failed in the browser. Please paste your resume text manually.");
+                      } finally {
+                        e.target.value = "";
+                      }
                     }}
                   />
                 </label>
