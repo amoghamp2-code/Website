@@ -47,7 +47,7 @@ function PasswordGate({ onUnlock }) {
 
 export default function FlightTracker() {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("flights_auth") === "1");
-  const [config, setConfig] = useState({ routes: DEFAULT_ROUTES, threshold: 300, alert_email: "", days_ahead: 30 });
+  const [config, setConfig] = useState({ routes: DEFAULT_ROUTES, threshold: 550, alert_email: "", days_ahead: 30 });
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [prices, setPrices] = useState({});

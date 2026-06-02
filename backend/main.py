@@ -139,7 +139,7 @@ CONFIG_FILE = "flight_config.json"
 
 _DEFAULT_CFG = {
     "routes": [],
-    "threshold": 300,
+    "threshold": 550,
     "alert_email": os.getenv("ALERT_EMAIL", ""),
     "days_ahead": 30,
 }
