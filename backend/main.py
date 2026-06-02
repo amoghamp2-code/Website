@@ -10,7 +10,7 @@ from pydantic import BaseModel
 import fitz  # PyMuPDF
 from dotenv import load_dotenv
 from apscheduler.schedulers.background import BackgroundScheduler
-from fast_flights import FlightQuery, Passengers, create_query, get_flights as ff_get_flights
+from fast_flights import FlightData, Passengers, create_filter, get_flights as ff_get_flights
 
 load_dotenv()
 
@@ -190,12 +190,12 @@ def run_tracker():
             date = (datetime.today() + timedelta(days=days)).strftime("%Y-%m-%d")
             key = f"{route['from']}-{route['to']}-{date}"
             try:
-                query = create_query(
-                    flights=[FlightQuery(date=date, from_airport=route["from"], to_airport=route["to"])],
+                f = create_filter(
+                    flight_data=[FlightData(date=date, from_airport=route["from"], to_airport=route["to"])],
                     seat="economy", trip="one-way", passengers=Passengers(adults=1),
                 )
-                res = ff_get_flights(query)
-                prices = [f.price for f in res.flights if f.price]
+                res = ff_get_flights(f)
+                prices = [fl.price for fl in res.flights if fl.price]
                 if not prices:
                     continue
                 price = min(prices)
