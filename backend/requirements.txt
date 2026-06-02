@@ -3,3 +3,6 @@ uvicorn[standard]
 httpx
 PyMuPDF
 python-multipart
+fast-flights
+apscheduler
+python-dotenv

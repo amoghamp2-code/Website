@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import ProjectDetail from './pages/ProjectDetail.jsx'
 import CareerAnalyzer from './pages/CareerAnalyzer.jsx'
+import FlightTracker from './pages/FlightTracker.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/work/:slug" element={<ProjectDetail />} />
         <Route path="/career-analyzer" element={<CareerAnalyzer />} />
+        <Route path="/flights" element={<FlightTracker />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
