@@ -214,9 +214,12 @@ def run_tracker():
             "\n".join(alerts),
         )
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(run_tracker, "interval", hours=6)
-scheduler.start()
+try:
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(run_tracker, "interval", hours=6)
+    scheduler.start()
+except Exception as e:
+    print(f"Scheduler failed to start: {e}")
 
 
 class FlightConfig(BaseModel):
