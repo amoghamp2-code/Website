@@ -5,7 +5,6 @@ export const projects = [
   title: "Flight Price Tracker",
   desc: "Password-protected personal tool that monitors Munich→Bangalore and Frankfurt→Bangalore fares, tracks price drops, and sends Gmail alerts automatically every 6 hours.",
   tags: ["Python", "FastAPI", "React", "Google Flights", "Protobuf", "APScheduler", "Docker"],
-  liveUrl: "/flights",
   detail: {
     problem: "Manually checking flight prices for Germany→India routes is tedious and easy to miss good deals.",
     approach: [
