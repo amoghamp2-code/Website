@@ -1,18 +1,72 @@
 import { useState, useEffect } from "react";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const PASSWORD = import.meta.env.VITE_FLIGHTS_PASSWORD || "flights123";
+
+const DEFAULT_ROUTES = [
+  { from: "MUC", to: "BLR" },
+  { from: "FRA", to: "BLR" },
+];
+
+function PasswordGate({ onUnlock }) {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (input === PASSWORD) {
+      sessionStorage.setItem("flights_auth", "1");
+      onUnlock();
+    } else {
+      setError(true);
+      setInput("");
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+      <form onSubmit={submit} className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md space-y-4 w-80">
+        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">✈️ Flight Tracker</h1>
+        <p className="text-sm text-gray-500">Enter password to access</p>
+        <input
+          type="password"
+          className="w-full border rounded px-3 py-2 bg-transparent text-gray-900 dark:text-gray-100"
+          placeholder="Password"
+          value={input}
+          onChange={e => { setInput(e.target.value); setError(false); }}
+          autoFocus
+        />
+        {error && <p className="text-red-500 text-sm">Incorrect password</p>}
+        <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded font-medium">
+          Enter
+        </button>
+      </form>
+    </div>
+  );
+}
 
 export default function FlightTracker() {
-  const [config, setConfig] = useState({ routes: [], threshold: 300, alert_email: "", days_ahead: 30 });
+  const [authed, setAuthed] = useState(() => sessionStorage.getItem("flights_auth") === "1");
+  const [config, setConfig] = useState({ routes: DEFAULT_ROUTES, threshold: 300, alert_email: "", days_ahead: 30 });
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [prices, setPrices] = useState({});
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    fetch(`${API}/api/flights/config`).then(r => r.json()).then(setConfig);
+    if (!authed) return;
+    fetch(`${API}/api/flights/config`).then(r => r.json()).then(cfg => {
+      // seed default routes if none saved yet
+      if (cfg.routes && cfg.routes.length === 0) {
+        setConfig(c => ({ ...c, ...cfg, routes: DEFAULT_ROUTES }));
+      } else {
+        setConfig(c => ({ ...c, ...cfg }));
+      }
+    });
     fetch(`${API}/api/flights/prices`).then(r => r.json()).then(setPrices);
-  }, []);
+  }, [authed]);
+
+  if (!authed) return <PasswordGate onUnlock={() => setAuthed(true)} />;
 
   const addRoute = () => {
     if (!from || !to) return;
@@ -32,7 +86,7 @@ export default function FlightTracker() {
   };
 
   const runNow = async () => {
-    setStatus("Checking...");
+    setStatus("Checking flights...");
     await fetch(`${API}/api/flights/run-now`, { method: "POST" });
     const p = await fetch(`${API}/api/flights/prices`).then(r => r.json());
     setPrices(p);
@@ -42,7 +96,7 @@ export default function FlightTracker() {
 
   const deals = Object.entries(prices)
     .sort((a, b) => a[1] - b[1])
-    .slice(0, 15)
+    .slice(0, 20)
     .map(([key, price]) => {
       const parts = key.split("-");
       return { from: parts[0], to: parts[1], date: parts.slice(2).join("-"), price };
@@ -57,25 +111,10 @@ export default function FlightTracker() {
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 space-y-3 shadow-sm">
           <h2 className="font-semibold">Routes to Watch</h2>
           <div className="flex gap-2">
-            <input
-              className="border rounded px-2 py-1 w-20 uppercase bg-transparent"
-              placeholder="FROM"
-              value={from}
-              maxLength={3}
-              onChange={e => setFrom(e.target.value)}
-            />
-            <input
-              className="border rounded px-2 py-1 w-20 uppercase bg-transparent"
-              placeholder="TO"
-              value={to}
-              maxLength={3}
-              onChange={e => setTo(e.target.value)}
-            />
-            <button onClick={addRoute} className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded">
-              Add
-            </button>
+            <input className="border rounded px-2 py-1 w-20 uppercase bg-transparent" placeholder="FROM" value={from} maxLength={3} onChange={e => setFrom(e.target.value)} />
+            <input className="border rounded px-2 py-1 w-20 uppercase bg-transparent" placeholder="TO" value={to} maxLength={3} onChange={e => setTo(e.target.value)} />
+            <button onClick={addRoute} className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded">Add</button>
           </div>
-          {config.routes.length === 0 && <p className="text-sm text-gray-400">No routes added yet.</p>}
           {config.routes.map((r, i) => (
             <div key={i} className="flex items-center justify-between bg-gray-50 dark:bg-gray-700 rounded px-3 py-1">
               <span>{r.from} → {r.to}</span>
@@ -88,7 +127,7 @@ export default function FlightTracker() {
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 space-y-3 shadow-sm">
           <h2 className="font-semibold">Settings</h2>
           <label className="flex items-center gap-2 text-sm">
-            Price alert threshold ($):
+            Alert below ($):
             <input type="number" className="border rounded px-2 py-1 w-24 bg-transparent" value={config.threshold}
               onChange={e => setConfig(c => ({ ...c, threshold: +e.target.value }))} />
           </label>
@@ -98,33 +137,25 @@ export default function FlightTracker() {
               onChange={e => setConfig(c => ({ ...c, alert_email: e.target.value }))} />
           </label>
           <label className="flex items-center gap-2 text-sm">
-            Days to look ahead:
+            Days ahead:
             <input type="number" className="border rounded px-2 py-1 w-20 bg-transparent" value={config.days_ahead}
               onChange={e => setConfig(c => ({ ...c, days_ahead: +e.target.value }))} />
           </label>
         </div>
 
-        {/* Actions */}
         <div className="flex gap-3 items-center">
-          <button onClick={save} className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-medium">
-            Save Config
-          </button>
-          <button onClick={runNow} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded font-medium">
-            Check Now
-          </button>
+          <button onClick={save} className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-medium">Save</button>
+          <button onClick={runNow} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded font-medium">Check Now</button>
           {status && <span className="text-sm text-gray-500">{status}</span>}
         </div>
 
-        {/* Price table */}
         {deals.length > 0 && (
           <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
             <h2 className="font-semibold mb-3">Cheapest Prices Found</h2>
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-left text-gray-500 border-b dark:border-gray-600">
-                  <th className="pb-2">Route</th>
-                  <th className="pb-2">Date</th>
-                  <th className="pb-2">Price</th>
+                  <th className="pb-2">Route</th><th className="pb-2">Date</th><th className="pb-2">Price</th>
                 </tr>
               </thead>
               <tbody>

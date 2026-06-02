@@ -1,6 +1,28 @@
 // src/data/projects.js
 export const projects = [
 {
+  slug: "flight-tracker",
+  title: "Flight Price Tracker",
+  desc: "Password-protected personal tool that monitors Munich→Bangalore and Frankfurt→Bangalore fares, tracks price drops, and sends Gmail alerts automatically every 6 hours.",
+  tags: ["Python", "FastAPI", "React", "Google Flights", "Protobuf", "APScheduler", "Docker"],
+  liveUrl: "/flights",
+  detail: {
+    problem: "Manually checking flight prices for Germany→India routes is tedious and easy to miss good deals.",
+    approach: [
+      "Used fast-flights, a Python library that reverse-engineers Google Flights' Protobuf-encoded URL parameters to scrape live prices without an official API.",
+      "Built a FastAPI backend with APScheduler to poll configured routes every 6 hours and compare against a stored price history.",
+      "Sends Gmail alerts when prices drop below a threshold or fall since the last check.",
+      "Built a password-protected React UI to configure routes, set thresholds, trigger manual checks, and view the cheapest dates in a table.",
+      "Deployed backend on Render (Docker) and frontend on Vercel, with Vercel rewrites proxying API calls.",
+    ],
+    results: [
+      "Fully automated price monitoring for MUC→BLR and FRA→BLR routes running 24/7.",
+      "Email alerts sent automatically on price drops with no manual intervention.",
+      "Password-gated UI accessible from the portfolio site for personal use.",
+    ]
+  }
+},
+{
   slug: "career-analyzer",
   title: "AI Career Opportunity Analyzer",
   desc: "Multi-step LLM workflow that compares resumes with job descriptions, returning structured match scores, skill gaps, and learning roadmaps.",
